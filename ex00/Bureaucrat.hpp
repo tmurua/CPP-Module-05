@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 09:56:19 by tmurua            #+#    #+#             */
-/*   Updated: 2026/04/27 10:29:25 by tmurua           ###   ########.fr       */
+/*   Updated: 2026/04/27 11:57:17 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <exception>
 #include <string>
+#include <iostream>
 
 class Bureaucrat{
 private:
@@ -43,5 +44,7 @@ public:
 		const char* what() const throw();
 	};
 };
+
+std::ostream &operator<<(std::ostream &o, const Bureaucrat &other);
 
 #endif
