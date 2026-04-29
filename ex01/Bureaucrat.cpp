@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include <exception>
 
 Bureaucrat::Bureaucrat() : _name("Mr. Nobody"), _grade(150){}
 
@@ -62,6 +64,17 @@ const char* Bureaucrat::GradeTooHighException::what() const throw(){
 
 const char* Bureaucrat::GradeTooLowException::what() const throw(){
 	return ("Trying to give a grade that is too low!");
+}
+
+void	Bureaucrat::signForm(Form &form){
+	try {
+		form.beSigned(*this);
+		std::cout << getName() << " signed " << form.getName() << std::endl;
+	}
+	catch(const std::exception &e){
+	std::cout << getName() << " couldn't sign " << form.getName() <<
+			" because " << e.what() << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &o, const Bureaucrat &other){
