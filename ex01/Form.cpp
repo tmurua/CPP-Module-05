@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "Form.hpp"
-#include <ostream>
-#include <string>
+#include "Bureaucrat.hpp"
 
 Form::Form() : _name("Standard Form"), _isSigned(false), _signGrade(150),
 				_execGrade(150){}
@@ -48,11 +47,11 @@ bool				Form::getBoolSign() const{
 	return (_isSigned);
 }
 
-const int			&Form::getSignGrade() const{
+int			Form::getSignGrade() const{
 	return (_signGrade);
 }
 
-const int			&Form::getExecGrade() const{
+int			Form::getExecGrade() const{
 	return (_execGrade);
 }
 
@@ -65,11 +64,6 @@ const char* Form::GradeTooLowException::what() const throw(){
 	return ("grade is too low!");
 }
 
-// Also, add a beSigned() member function to the Form that takes a Bureaucrat 
-// as a parameter. It changes the form’s status to signed if the bureaucrat’s 
-// grade is high enough (greater than or equal to the required one). 
-// Remember, grade 1 is higher than grade 2. If the grade is too low, 
-// throw a Form::GradeTooLowException
 
 void Form::beSigned(const Bureaucrat &b){
 	if (b.getGrade() <= _signGrade)

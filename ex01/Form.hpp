@@ -13,12 +13,11 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 
-// • constant name. 
-// • boolean indicating whether it is signed (at construction, it is not). 
-// • constant grade required to sign it. 
-// • constant grade required to execute it.
+#include <string>
+#include <iostream>
+#include <exception>
 
-#include "Bureaucrat.hpp"
+class Bureaucrat;
 
 class Form{
 private:
@@ -36,8 +35,8 @@ public:
 
 	const std::string	&getName() const;
 	bool				getBoolSign() const;
-	const int			&getSignGrade() const;
-	const int			&getExecGrade() const;
+	int			getSignGrade() const;
+	int			getExecGrade() const;
 	
 	class GradeTooHighException : public std::exception{
 	public:
