@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include <ostream>
+#include <string>
 
 Form::Form() : _name("Standard Form"), _isSigned(false), _signGrade(150),
 				_execGrade(150){}
@@ -36,3 +38,51 @@ Form	&Form::operator=(const Form &other){
 }
 
 Form::~Form(){}
+
+
+const std::string	&Form::getName() const{
+	return (_name);
+}
+
+bool				Form::getBoolSign() const{
+	return (_isSigned);
+}
+
+const int			&Form::getSignGrade() const{
+	return (_signGrade);
+}
+
+const int			&Form::getExecGrade() const{
+	return (_execGrade);
+}
+
+
+const char* Form::GradeTooHighException::what() const throw(){
+	return ("The grade on this Form is too high!");
+}
+
+const char* Form::GradeTooLowException::what() const throw(){
+	return ("The grade on this Form is too low!");
+}
+
+// Also, add a beSigned() member function to the Form that takes a Bureaucrat 
+// as a parameter. It changes the form’s status to signed if the bureaucrat’s 
+// grade is high enough (greater than or equal to the required one). 
+// Remember, grade 1 is higher than grade 2. If the grade is too low, 
+// throw a Form::GradeTooLowException
+
+void Form::beSigned(const Bureaucrat &b){
+	if (b.getGrade() <= _signGrade)
+		_isSigned = true;
+	else
+		throw GradeTooLowException();
+}
+
+std::ostream	&operator<<(std::ostream &o, const Form &other)
+{
+	o << other.getName() << " Signed status: " << 
+		other.getBoolSign() << " | Grade required to sign it: " << 
+		other.getSignGrade() << " | Grade required to execute it: " << 
+		other.getExecGrade() << ".";
+	return (o);
+}
