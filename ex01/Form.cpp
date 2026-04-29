@@ -58,11 +58,11 @@ const int			&Form::getExecGrade() const{
 
 
 const char* Form::GradeTooHighException::what() const throw(){
-	return ("The grade on this Form is too high!");
+	return ("grade is too high!");
 }
 
 const char* Form::GradeTooLowException::what() const throw(){
-	return ("The grade on this Form is too low!");
+	return ("grade is too low!");
 }
 
 // Also, add a beSigned() member function to the Form that takes a Bureaucrat 
@@ -80,7 +80,7 @@ void Form::beSigned(const Bureaucrat &b){
 
 std::ostream	&operator<<(std::ostream &o, const Form &other)
 {
-	o << other.getName() << " Signed status: " << 
+	o << other.getName() << " | Signed status: " << 
 		other.getBoolSign() << " | Grade required to sign it: " << 
 		other.getSignGrade() << " | Grade required to execute it: " << 
 		other.getExecGrade() << ".";
