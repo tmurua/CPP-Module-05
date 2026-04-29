@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 12:31:06 by tmurua            #+#    #+#             */
-/*   Updated: 2026/04/29 14:48:52 by tmurua           ###   ########.fr       */
+/*   Updated: 2026/04/29 15:35:24 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ private:
 
 public:
 	Form();
-	Form(const std::string name, const int signGrade, const int execGrade);
+	Form(const std::string &name, int signGrade, int execGrade);
 	Form(const Form &other);
 	Form &operator=(const Form &other);
 	~Form();
