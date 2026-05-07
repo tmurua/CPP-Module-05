@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/07 15:14:40 by tmurua            #+#    #+#             */
-/*   Updated: 2026/05/07 15:26:25 by tmurua           ###   ########.fr       */
+/*   Created: 2026/05/07 17:31:41 by tmurua            #+#    #+#             */
+/*   Updated: 2026/05/07 17:38:59 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define	ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
-#include <fstream>
+#include <cstdlib>
+#include <ctime>
 
-class ShrubberyCreationForm : public AForm{
+class RobotomyRequestForm : public AForm{
 private:
 	std::string _target;
 
 protected:
-	void	executeAction()const; // why does this need to be protected?
+	void executeAction() const;
 
 public:
-	ShrubberyCreationForm();
-	ShrubberyCreationForm(const std::string &target);
-	ShrubberyCreationForm(const ShrubberyCreationForm &other);
-	ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &other);
-	~ShrubberyCreationForm();
+	RobotomyRequestForm();
+	RobotomyRequestForm(const std::string &target);
+	RobotomyRequestForm(const RobotomyRequestForm &other);
+	RobotomyRequestForm	&operator=(const RobotomyRequestForm &other);
+	~RobotomyRequestForm();
 };
 
 #endif
