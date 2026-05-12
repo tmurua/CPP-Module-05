@@ -6,7 +6,7 @@
 /*   By: tmurua <tmurua@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 10:53:04 by tmurua            #+#    #+#             */
-/*   Updated: 2026/05/08 16:52:28 by tmurua           ###   ########.fr       */
+/*   Updated: 2026/05/12 23:41:55 by tmurua           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,71 +15,32 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
-int main()
-{
-	std::cout << "----- A: cannot execute unsigned form -----" << std::endl;
-	try {
-		Bureaucrat boss("Boss", 1);
-		ShrubberyCreationForm formA("home");
-		std::cout << formA << std::endl;
-		boss.executeForm(formA);
-	}
-	catch (const std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
+void testForm(Intern &intern, std::string name, std::string target){
+	AForm *form = intern.makeForm(name, target);
+	
+	if (form)
+		delete (form);
+}
 
-	std::cout << "\n----- B: signed but grade too low to execute -----" << std::endl;
-	try {
-		Bureaucrat signer("Signer", 1);
-		Bureaucrat weak("Weak", 150);
-		RobotomyRequestForm formB("Bender");
-		signer.signForm(formB);
-		weak.executeForm(formB);
-	}
-	catch (const std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
+int main(){
+	Intern someRandomIntern;
 
-	std::cout << "\n----- C: successful shrubbery execution -----" << std::endl;
-	try {
-		Bureaucrat boss("Boss", 1);
-		ShrubberyCreationForm formC("garden");
-		boss.signForm(formC);
-		boss.executeForm(formC);
-	}
-	catch (const std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
+	AForm* rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	if (rrf)
+		delete (rrf);
 
-	std::cout << "\n----- D: successful robotomy execution -----" << std::endl;
-	try {
-		Bureaucrat boss("Boss", 1);
-		RobotomyRequestForm formD("Marvin");
-		boss.signForm(formD);
-		boss.executeForm(formD);
-	}
-	catch (const std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
+	testForm(someRandomIntern, "shrubbery creation", "home");
+	testForm(someRandomIntern, "robotomy request", "Bender");
+	testForm(someRandomIntern, "presidential pardon", "Arthur Dent");
+	testForm(someRandomIntern, "nonexistent form", "nowhere");
 
-	std::cout << "\n----- E: successful presidential pardon -----" << std::endl; try {
-		Bureaucrat boss("Boss", 1);
-		PresidentialPardonForm formE("Arthur Dent");
-		boss.signForm(formE);
-		boss.executeForm(formE);
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	std::cout << "\n----- F: delete through AForm* -----" << std::endl;
-	AForm *forms[3];
-	forms[0] = new ShrubberyCreationForm("park");
-	forms[1] = new RobotomyRequestForm("HAL");
-	forms[2] = new PresidentialPardonForm("Ford Prefect");
-
-	for (int i = 0; i < 3; i++)
-		delete forms[i];
+	Bureaucrat boss("Boss", 1);
+	AForm *pardon = someRandomIntern.makeForm("presidential pardon", "Richard Nixon");
+	boss.signForm(*pardon);
+	boss.executeForm(*pardon);
+	if (pardon)
+		delete (pardon);
 }
