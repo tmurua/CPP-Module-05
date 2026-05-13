@@ -24,7 +24,7 @@ int main()
 		std::cout << pX << std::endl;
 	}
 	catch (const std::exception& e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- A: Constructor attempt to instantiate" <<
@@ -33,13 +33,13 @@ int main()
 		Bureaucrat highA("Mr. High A", 0);
 	}
 	catch (const std::exception& e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	try{
 		Bureaucrat lowA("Mr. Low A", 151);
 	}
 	catch (const std::exception& e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- B: attempt to increment grade out of range -----\n"; 
@@ -52,7 +52,7 @@ int main()
 		std::cout << B << std::endl;
 	}
 	catch (const std::exception& e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- C: attempt to decrement grade out of range -----\n"; 
@@ -65,7 +65,7 @@ int main()
 		std::cout << C << std::endl;
 	}
 	catch (const std::exception& e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- Y: Copy constructor -----\n";
@@ -76,7 +76,7 @@ int main()
 		std::cout << cpY << std::endl;
 	}
 	catch (const std::exception& e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	
 	std::cout << "\n----- Z: Assignement operator copies grade -----\n";
@@ -89,6 +89,6 @@ int main()
 		std::cout << cpZ << std::endl;
 	}
 	catch (const std::exception& e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 }

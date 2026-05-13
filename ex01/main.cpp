@@ -21,7 +21,7 @@ int main()
 		std::cout << a << std::endl;
 	}
 	catch (const std::exception &e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- B: invalid Form construction (grade too high) -----" << std::endl;
@@ -30,7 +30,7 @@ int main()
 		std::cout << b << std::endl;
 	}
 	catch (const std::exception &e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- C: invalid Form construction (grade too low) -----" << std::endl;
@@ -39,7 +39,7 @@ int main()
 		std::cout << c << std::endl;
 	}
 	catch (const std::exception &e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- D: successful signing -----" << std::endl;
@@ -55,7 +55,7 @@ int main()
 		std::cout << dF << std::endl;
 	}
 	catch (const std::exception &e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- E: failed signing (grade too low) -----" << std::endl;
@@ -71,7 +71,7 @@ int main()
 		std::cout << eF << std::endl;
 	}
 	catch (const std::exception &e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- F: signed status changes only when allowed -----" << std::endl;
@@ -89,7 +89,7 @@ int main()
 		std::cout << "After good attempt: " << f << std::endl;
 	}
 	catch (const std::exception &e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- G: copy constructor -----" << std::endl;
@@ -101,7 +101,7 @@ int main()
 		std::cout << copy << std::endl;
 	}
 	catch (const std::exception &e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- H: assignment operator -----" << std::endl;
@@ -120,6 +120,6 @@ int main()
 		std::cout << assigned << std::endl;
 	}
 	catch (const std::exception &e){
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 }

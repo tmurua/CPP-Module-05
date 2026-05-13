@@ -26,7 +26,7 @@ int main()
 		boss.executeForm(formA);
 	}
 	catch (const std::exception &e) {
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- B: signed but grade too low to execute -----" << std::endl;
@@ -38,7 +38,7 @@ int main()
 		weak.executeForm(formB);
 	}
 	catch (const std::exception &e) {
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- C: successful shrubbery execution -----" << std::endl;
@@ -49,7 +49,7 @@ int main()
 		boss.executeForm(formC);
 	}
 	catch (const std::exception &e) {
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- D: successful robotomy execution -----" << std::endl;
@@ -60,7 +60,7 @@ int main()
 		boss.executeForm(formD);
 	}
 	catch (const std::exception &e) {
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- E: successful presidential pardon -----" << std::endl; try {
@@ -71,7 +71,7 @@ int main()
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << "\n----- F: delete through AForm* -----" << std::endl;
